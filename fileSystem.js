@@ -12,18 +12,20 @@ async function fsReader(pathFilename) {
   });
 }
 
-async function fsWriter(pathFilename, content) {
+async function fsWriter(filename, content, path) {
+  await fs.promises.mkdir(`./${path}`, { recursive: true });
   return new Promise((res, rej) => {
     try {
-      fs.promises.mkdir("./blogger", { recursive: true }).catch(console.error);
-      fs.writeFile("./blogger/" + pathFilename, content, function (err) {
+      fs.writeFile(`./${path}/` + filename, content, function (err) {
         if (err) rej(err);
         else res("File is created successfully.");
       });
     } catch (err) {
-      rej(pathFilename + err.message);
+      rej(filename + err.message);
     }
   });
+
+  // .catch(console.error);
 }
 
 module.exports = {

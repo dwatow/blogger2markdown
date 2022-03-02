@@ -35,8 +35,11 @@ function JSONToMarkdown({
   orange_link,
   tags,
 }) {
+  const path = orange_link ? "_posts/blogger" : "_draft/blogger";
+  console.log(path, title);
   return {
     id,
+    path,
     markdown: `---
 title: "${title.split('"').join("'")}"
 date: ${created_at}
@@ -88,11 +91,11 @@ fsReader("./data.xml")
       array
         .map(entryDomToJSON)
         .map(JSONToMarkdown)
-        .map(({ id, markdown }) => {
+        .map(({ id, path, markdown }) => {
           const id2 = id.split("post-").pop();
-          return { id: id2, markdown };
+          return { id: id2, path, markdown };
         })
-        .map(({ id, markdown }) => fsWriter(`${id}.md`, markdown))
+        .map(({ id, path, markdown }) => fsWriter(`${id}.md`, markdown, path))
     );
   })
   //   .then(entryDomToJSON)
