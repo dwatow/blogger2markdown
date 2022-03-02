@@ -38,10 +38,10 @@ function JSONToMarkdown({
   return {
     id,
     markdown: `---
-title: ${title}
+title: "${title}"
 date: ${created_at}
 tags: 
-${tags.map((tag) => `- ${tag}`).join("\n")}
+${tags.map((tag) => `- "${tag}"`).join("\n")}
 categories:
 - 舊部落格移植文章
 ---
