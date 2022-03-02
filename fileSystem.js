@@ -15,8 +15,8 @@ async function fsReader(pathFilename) {
 async function fsWriter(pathFilename, content) {
   return new Promise((res, rej) => {
     try {
-      fs.promises.mkdir("./dist", { recursive: true }).catch(console.error);
-      fs.writeFile("./dist/" + pathFilename, content, function (err) {
+      fs.promises.mkdir("./blogger", { recursive: true }).catch(console.error);
+      fs.writeFile("./blogger/" + pathFilename, content, function (err) {
         if (err) rej(err);
         else res("File is created successfully.");
       });
