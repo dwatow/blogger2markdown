@@ -41,7 +41,7 @@ function JSONToMarkdown({
 title: ${title}
 date: ${created_at}
 tags: 
-${tags.map((tag) => `- ${tag}\n`)}
+${tags.map((tag) => `- ${tag}`).join("\n")}
 categories:
 - 舊部落格移植文章
 ---
