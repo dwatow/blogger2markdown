@@ -60,8 +60,10 @@ function entryToId(entryDom) {
   return [...entryDom.querySelectorAll("id")].map((dom) => dom.textContent);
 }
 function filterPost(dom) {
-  return [...dom.querySelectorAll("entry")].filter((entryDom) =>
-    entryDom.querySelector("id").textContent.includes("post")
+  return [...dom.querySelectorAll("entry")].filter(
+    (entryDom) =>
+      entryDom.querySelector("id").textContent.includes("post-") &&
+      !entryDom.querySelector("link[rel='alternate']")?.href.includes("#")
   );
 }
 function findEntryIndex(title) {
