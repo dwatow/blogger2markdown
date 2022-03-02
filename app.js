@@ -38,7 +38,7 @@ function JSONToMarkdown({
   return {
     id,
     markdown: `---
-title: "${title}"
+title: "${title.split('"').join("'")}"
 date: ${created_at}
 tags: 
 ${tags.map((tag) => `- "${tag}"`).join("\n")}
