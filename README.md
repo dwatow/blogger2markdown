@@ -11,7 +11,9 @@ blogger 有備份功能，可以將自己過往的所有文章備份下來，但
 
 1. 備份下來的檔案，設定成 `data.xml` 放在根目錄。
 2. 執行 `npm run build`
-3. 產生 `blogger` 目錄。
+3. 產生 markdown 在目錄
+  - `_posts/blogger` 發佈文章
+  - `_draft/blogger/` 草稿文章
 4. 完成
 
 
